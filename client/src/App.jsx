@@ -28,10 +28,18 @@ export default function App() {
 
     if (token && saved) {
       setUser(saved);
+      // Set activeTab based on user role
+      if (saved.role === 'deanadmin') {
+        setActiveTab('history');
+      }
       // Validate token with backend
       apiFetch('/auth/me')
         .then((res) => {
           setUser(res.user);
+          // Update activeTab if role is deanadmin
+          if (res.user.role === 'deanadmin') {
+            setActiveTab('history');
+          }
         })
         .catch(() => {
           // Clear invalid session
@@ -51,6 +59,18 @@ export default function App() {
     setUser(null);
   };
 
+  // Prevent deanadmin from switching tabs
+  const handleTabChange = (tab) => {
+    if (user && user.role === 'deanadmin') {
+      // deanadmin can only view history, ignore other tab changes
+      if (tab === 'history') {
+        setActiveTab(tab);
+      }
+    } else {
+      setActiveTab(tab);
+    }
+  };
+
   const handleReportSubmitted = (id) => {
     setActiveTab('history');
   };
@@ -68,7 +88,7 @@ export default function App() {
       <Navbar
         user={user}
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         onLogout={handleLogout}
         dbStatus={dbStatus}
       />
@@ -78,7 +98,8 @@ export default function App() {
           <Login onLoginSuccess={(u) => setUser(u)} />
         ) : (
           <>
-            {activeTab === 'new' && (
+            {/* Show Daily Report Form only if user role is not deanadmin */}
+            {activeTab === 'new' && user.role !== 'deanadmin' && (
               <DailyReportForm user={user} onReportSubmitted={handleReportSubmitted} />
             )}
             {activeTab === 'history' && <ReportList />}

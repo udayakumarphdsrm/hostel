@@ -12,20 +12,27 @@ export default function Navbar({ user, activeTab, setActiveTab, onLogout, dbStat
 
       {user && (
         <div className="navbar-links">
-          <button
-            className={`nav-btn ${activeTab === 'new' ? 'active' : ''}`}
-            onClick={() => setActiveTab('new')}
-          >
-            <FileText size={16} />
-            <span>New Daily Report</span>
-          </button>
+          {/* Only show "New Daily Report" button if user is not deanadmin */}
+          {user.role !== 'deanadmin' && (
+            <button
+              className={`nav-btn ${activeTab === 'new' ? 'active' : ''}`}
+              onClick={() => setActiveTab('new')}
+            >
+              <FileText size={16} />
+              <span>New Daily Report</span>
+            </button>
+          )}
 
+          {/* For deanadmin, show Report History as the only menu option */}
           <button
             className={`nav-btn ${activeTab === 'history' ? 'active' : ''}`}
             onClick={() => setActiveTab('history')}
+            style={user.role === 'deanadmin' ? { opacity: 0.7 } : {}}
+            title={user.role === 'deanadmin' ? 'View only access' : ''}
           >
             <ListFilter size={16} />
             <span>Report History</span>
+            {user.role === 'deanadmin' && <span style={{ fontSize: '0.7rem', marginLeft: '0.3rem' }}>(View Only)</span>}
           </button>
 
           <div className="user-badge">
