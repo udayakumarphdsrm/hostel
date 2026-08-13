@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Lock, User, KeyRound, AlertCircle, ShieldCheck } from 'lucide-react';
+import { User, KeyRound, AlertCircle, ShieldCheck } from 'lucide-react';
 import { apiFetch, setAuthToken, setSavedUser } from '../utils/api';
+import logo from '../assets/images/logo.png';
 
 export default function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('warden');
@@ -39,7 +40,7 @@ export default function Login({ onLoginSuccess }) {
       <div className="auth-card">
         <div className="auth-header">
           <div className="auth-icon">
-            <Lock size={26} />
+            <img src={logo} alt="SRM Group Logo" className="logo-image" />
           </div>
           <h1 className="auth-title">Hostel Admin Portal</h1>
           <p className="auth-subtitle">Sign in to access & submit the Daily Hostel Report</p>

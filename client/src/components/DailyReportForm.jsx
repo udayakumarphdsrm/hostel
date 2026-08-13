@@ -4,23 +4,23 @@ import { apiFetch } from '../utils/api';
 
 const defaultStudentData = [
   // SRM-IST(E&T)
-  { category: 'SRM-IST(E&T)', institution_code: 'BH-II', total_admitted: 8, students_present: 7, absent_with_permission: 1, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
-  { category: 'SRM-IST(E&T)', institution_code: 'OMV', total_admitted: 2, students_present: 2, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'SRM-IST(E&T)', institution_code: 'BH-II', total_admitted:0 , students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'SRM-IST(E&T)', institution_code: 'OMV', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   { category: 'SRM-IST(E&T)', institution_code: 'SGN', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   
   // SRM-IST(S&H)
-  { category: 'SRM-IST(S&H)', institution_code: 'BH-II', total_admitted: 1, students_present: 1, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'SRM-IST(S&H)', institution_code: 'BH-II', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   { category: 'SRM-IST(S&H)', institution_code: 'OMV', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   
-  // ESWARI ENGINEERING COLLEGE
-  { category: 'ESWARI ENGINEERING COLLEGE', institution_code: 'BH-II', total_admitted: 7, students_present: 4, absent_with_permission: 3, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
-  { category: 'ESWARI ENGINEERING COLLEGE', institution_code: 'JM', total_admitted: 19, students_present: 11, absent_with_permission: 8, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
-  { category: 'ESWARI ENGINEERING COLLEGE', institution_code: 'OMV', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  // EASWARI ENGINEERING COLLEGE
+  { category: 'EASWARI ENGINEERING COLLEGE', institution_code: 'BH-II', total_admitted: 0, students_present: 0, absent_with_permission: 3, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'EASWARI ENGINEERING COLLEGE', institution_code: 'JM', total_admitted: 0, students_present: 0, absent_with_permission: 8, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'EASWARI ENGINEERING COLLEGE', institution_code: 'OMV', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   
   // SRM-DENTAL
-  { category: 'SRM-DENTAL', institution_code: 'BH-II', total_admitted: 1, students_present: 1, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'SRM-DENTAL', institution_code: 'BH-II', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
   { category: 'SRM-DENTAL', institution_code: 'SGN', total_admitted: 0, students_present: 0, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
-  { category: 'SRM-DENTAL', institution_code: 'OMV', total_admitted: 4, students_present: 4, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
+  { category: 'SRM-DENTAL', institution_code: 'OMV', total_admitted: 0, students_present: 4, absent_with_permission: 0, absent_without_permission: 0, unpermitted_student_names: '', time_informed_parents: '', parent_contact_no: '', remarks: '' },
 ];
 
 const defaultSecurityData = [
@@ -742,9 +742,34 @@ export default function DailyReportForm({ user, onReportSubmitted }) {
             type="button"
             className="btn-secondary"
             onClick={() => {
+              setHostelName('BOYS HOSTEL');
+              setReportDate(getToday());
+              setWardenSignature(user?.fullName || 'M. Vincent Raman');
+              setDeanRemarks('');
+              setMaintenanceWork('');
               setStudentRows(defaultStudentData);
+              setMessReport({
+                breakfast_feedback: 'Okay',
+                lunch_feedback: 'Okay',
+                dinner_feedback: 'Okay'
+              });
+              setCommitteeVisits({
+                bh_ii_status: 'Yes',
+                omv_status: 'Yes',
+                sgn_status: 'Yes',
+                jayameena_status: 'Yes',
+                remarks: ''
+              });
               setSecurityRows(defaultSecurityData);
               setHousekeepingRows(defaultHousekeepingData);
+              setWardenAttendance({
+                allotted_nos: 6,
+                present_count: 4,
+                absent_count: 0,
+                vacancy_count: 2
+              });
+              setErrorMessage('');
+              setSuccessMessage('');
             }}
           >
             <RotateCcw size={16} />

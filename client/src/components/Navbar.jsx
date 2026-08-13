@@ -1,12 +1,13 @@
 import React from 'react';
-import { Building2, LogOut, FileText, ListFilter, Database, User } from 'lucide-react';
+import { LogOut, FileText, ListFilter, Database, User } from 'lucide-react';
+import logo from '../assets/images/logo.png';
 
 export default function Navbar({ user, activeTab, setActiveTab, onLogout, dbStatus }) {
   return (
     <header className="navbar no-print">
       <div className="navbar-brand">
-        <Building2 size={24} />
-        <span>HOSTEL MANAGEMENT REPORT SYSTEM</span>
+        <img src={logo} alt="SRM Group Logo" className="navbar-logo" />
+        <span>HOSTEL DAILY ATTENDANCE REPORT SYSTEM</span>
       </div>
 
       {user && (

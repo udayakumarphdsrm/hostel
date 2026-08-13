@@ -8,6 +8,8 @@ export default function ReportList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
   
   const [selectedReportId, setSelectedReportId] = useState(null);
   const [fullReport, setFullReport] = useState(null);
@@ -58,26 +60,92 @@ export default function ReportList() {
 
   const filteredReports = reports.filter(r => {
     const term = searchTerm.toLowerCase();
-    return (
+    const reportDate = new Date(r.report_date);
+    const from = fromDate ? new Date(fromDate) : null;
+    const to = toDate ? new Date(toDate) : null;
+
+    // Text search filter
+    const textMatch = !searchTerm || (
       (r.hostel_name && r.hostel_name.toLowerCase().includes(term)) ||
       (r.warden_signature_name && r.warden_signature_name.toLowerCase().includes(term)) ||
       (r.report_date && r.report_date.includes(term))
     );
+
+    // Date range filter
+    const dateMatch = (!from || reportDate >= from) && (!to || reportDate <= to);
+
+    return textMatch && dateMatch;
   });
 
   return (
     <div className="report-card">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-        <div>
-          <h2 style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '1.35rem', fontWeight: 700, color: '#0f172a' }}>
-            Submitted Daily Hostel Reports
-          </h2>
-          <p style={{ color: '#64748b', fontSize: '0.875rem' }}>
-            Browse historical records stored in PostgreSQL database
-          </p>
+      <div style={{ marginBottom: '1.5rem' }}>
+        <h2 style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
+          Submitted Daily Hostel Reports
+        </h2>
+        <p style={{ color: '#64748b', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
+          Browse historical records stored in PostgreSQL database
+        </p>
+
+        {/* Date Filter Section */}
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem', padding: '1rem', backgroundColor: '#f1f5f9', borderRadius: '8px' }}>
+          {/* From Date Filter */}
+          <div style={{ flex: '1', minWidth: '180px' }}>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.4rem' }}>
+              From Date
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              value={fromDate}
+              onChange={(e) => setFromDate(e.target.value)}
+              style={{ width: '100%' }}
+            />
+          </div>
+
+          {/* To Date Filter */}
+          <div style={{ flex: '1', minWidth: '180px' }}>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.4rem' }}>
+              To Date
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              value={toDate}
+              onChange={(e) => setToDate(e.target.value)}
+              style={{ width: '100%' }}
+            />
+          </div>
+
+          {/* Reset Button */}
+          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+            <button
+              onClick={() => {
+                setFromDate('');
+                setToDate('');
+                setSearchTerm('');
+              }}
+              style={{
+                padding: '0.65rem 1rem',
+                backgroundColor: '#e2e8f0',
+                color: '#0f172a',
+                border: '1px solid #cbd5e1',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: '600',
+                fontSize: '0.875rem',
+                transition: 'background-color 0.2s ease'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#cbd5e1'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#e2e8f0'}
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
 
-        <div style={{ position: 'relative', width: '280px' }}>
+        {/* Search Bar */}
+        <div style={{ position: 'relative', width: '100%', maxWidth: '280px' }}>
           <input
             type="text"
             className="form-control"
