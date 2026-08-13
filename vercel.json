@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "client/dist",
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "JWT_SECRET": "@jwt_secret",
+    "PORT": "3000"
+  },
+  "functions": {
+    "server/index.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "server/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "client/dist/$1"
+    }
+  ]
+}
