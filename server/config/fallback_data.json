@@ -1,0 +1,372 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "warden",
+      "password_hash": "$2a$10$6Qn/ZkyHiprj0l3wFgZHR.cH52pORWHT/e0Jo5YJwfDtSsge1Y3oe",
+      "role": "warden",
+      "full_name": "Chief Hostel Warden",
+      "created_at": "2026-08-13T07:19:37.896Z"
+    },
+    {
+      "id": 2,
+      "username": "deanadmin",
+      "password_hash": "$2a$10$Kn0n.luE5bsAf/Y9VilXO.2U.jahqLbGAUUW6oM.aHK3jP2C4NQ9G",
+      "role": "dean",
+      "full_name": "Dean (Student Affairs)",
+      "created_at": "2026-08-13T07:36:50.590Z"
+    }
+  ],
+  "reports": [
+    {
+      "id": 2,
+      "hostel_name": "BOYS HOSTEL",
+      "report_date": "2026-08-13",
+      "warden_signature_name": "Chief Hostel Warden",
+      "dean_approval_remarks": "",
+      "maintenance_work": "",
+      "created_by": 1,
+      "created_at": "2026-08-13T07:34:27.332Z",
+      "student_attendance": [
+        {
+          "category": "SRM-IST(E&T)",
+          "institution_code": "BH-II",
+          "total_admitted": 8,
+          "students_present": 7,
+          "absent_with_permission": 1,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": ""
+        },
+        {
+          "category": "SRM-IST(E&T)",
+          "institution_code": "OMV",
+          "total_admitted": 2,
+          "students_present": 2,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "SRM-IST(E&T)",
+          "institution_code": "SGN",
+          "total_admitted": 0,
+          "students_present": 0,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "SRM-IST(S&H)",
+          "institution_code": "BH-II",
+          "total_admitted": 1,
+          "students_present": 1,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "SRM-IST(S&H)",
+          "institution_code": "OMV",
+          "total_admitted": 5,
+          "students_present": 5,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "ESWARI ENGINEERING COLLEGE",
+          "institution_code": "BH-II",
+          "total_admitted": 7,
+          "students_present": 4,
+          "absent_with_permission": 3,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "ESWARI ENGINEERING COLLEGE",
+          "institution_code": "JM",
+          "total_admitted": 19,
+          "students_present": 11,
+          "absent_with_permission": 8,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "ESWARI ENGINEERING COLLEGE",
+          "institution_code": "OMV",
+          "total_admitted": 0,
+          "students_present": 0,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "SRM-DENTAL",
+          "institution_code": "BH-II",
+          "total_admitted": 1,
+          "students_present": 1,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": ""
+        },
+        {
+          "category": "SRM-DENTAL",
+          "institution_code": "SGN",
+          "total_admitted": 0,
+          "students_present": 0,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        },
+        {
+          "category": "SRM-DENTAL",
+          "institution_code": "OMV",
+          "total_admitted": 4,
+          "students_present": 4,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0,
+          "unpermitted_student_names": "nil",
+          "time_informed_parents": "nil",
+          "parent_contact_no": "nil",
+          "remarks": "nil"
+        }
+      ],
+      "mess_report": {
+        "breakfast_feedback": "Okay",
+        "lunch_feedback": "Okay",
+        "dinner_feedback": "Okay"
+      },
+      "committee_visits": {
+        "bh_ii_status": "Yes",
+        "omv_status": "Yes",
+        "sgn_status": "Yes",
+        "jayameena_status": "Yes",
+        "remarks": ""
+      },
+      "security_attendance": [
+        {
+          "designation": "SSO",
+          "allotted_nos": 8,
+          "present_day": 3,
+          "present_night": 4,
+          "absent_day": 1,
+          "absent_night": 0,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        },
+        {
+          "designation": "ASO",
+          "allotted_nos": 12,
+          "present_day": 5,
+          "present_night": 2,
+          "absent_day": 1,
+          "absent_night": 4,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        },
+        {
+          "designation": "SSG",
+          "allotted_nos": 8,
+          "present_day": 1,
+          "present_night": 3,
+          "absent_day": 3,
+          "absent_night": 1,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        }
+      ],
+      "housekeeping_attendance": [
+        {
+          "designation": "SWEEPERS",
+          "allotted_nos": 48,
+          "present_count": 20,
+          "absent_count": 4,
+          "vacancy_count": 24
+        },
+        {
+          "designation": "SCAVENGERS",
+          "allotted_nos": 42,
+          "present_count": 17,
+          "absent_count": 8,
+          "vacancy_count": 17
+        },
+        {
+          "designation": "HK SUPERVISORS",
+          "allotted_nos": 2,
+          "present_count": 1,
+          "absent_count": 0,
+          "vacancy_count": 1
+        }
+      ],
+      "warden_attendance": {
+        "allotted_nos": 6,
+        "present_count": 4,
+        "absent_count": 0,
+        "vacancy_count": 2
+      }
+    },
+    {
+      "id": 1,
+      "hostel_name": "BOYS HOSTEL",
+      "report_date": "2026-06-29",
+      "warden_signature_name": "M. Vincent Raman",
+      "dean_approval_remarks": "Verified & Approved",
+      "maintenance_work": "Plumbing repair in Block BH-II Room 204.",
+      "created_by": 1,
+      "created_at": "2026-08-13T07:20:13.694Z",
+      "student_attendance": [
+        {
+          "category": "SRM-IST(E&T)",
+          "institution_code": "BH-II",
+          "total_admitted": 8,
+          "students_present": 7,
+          "absent_with_permission": 1,
+          "absent_without_permission": 0
+        },
+        {
+          "category": "SRM-IST(E&T)",
+          "institution_code": "OMV",
+          "total_admitted": 2,
+          "students_present": 2,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0
+        },
+        {
+          "category": "ESWARI ENGINEERING COLLEGE",
+          "institution_code": "BH-II",
+          "total_admitted": 7,
+          "students_present": 4,
+          "absent_with_permission": 3,
+          "absent_without_permission": 0
+        },
+        {
+          "category": "ESWARI ENGINEERING COLLEGE",
+          "institution_code": "JM",
+          "total_admitted": 19,
+          "students_present": 11,
+          "absent_with_permission": 8,
+          "absent_without_permission": 0
+        },
+        {
+          "category": "SRM-DENTAL",
+          "institution_code": "BH-II",
+          "total_admitted": 1,
+          "students_present": 1,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0
+        },
+        {
+          "category": "SRM-DENTAL",
+          "institution_code": "OMV",
+          "total_admitted": 4,
+          "students_present": 4,
+          "absent_with_permission": 0,
+          "absent_without_permission": 0
+        }
+      ],
+      "mess_report": {
+        "breakfast_feedback": "Okay",
+        "lunch_feedback": "Okay",
+        "dinner_feedback": "Okay"
+      },
+      "committee_visits": {
+        "bh_ii_status": "Yes",
+        "omv_status": "Yes",
+        "sgn_status": "Yes",
+        "jayameena_status": "Yes",
+        "remarks": "Discipline checks completed."
+      },
+      "security_attendance": [
+        {
+          "designation": "SSO",
+          "allotted_nos": 8,
+          "present_day": 3,
+          "present_night": 4,
+          "absent_day": 1,
+          "absent_night": 0,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        },
+        {
+          "designation": "ASO",
+          "allotted_nos": 12,
+          "present_day": 5,
+          "present_night": 2,
+          "absent_day": 1,
+          "absent_night": 4,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        },
+        {
+          "designation": "SSG",
+          "allotted_nos": 8,
+          "present_day": 1,
+          "present_night": 3,
+          "absent_day": 3,
+          "absent_night": 1,
+          "vacancy_day": 0,
+          "vacancy_night": 0
+        }
+      ],
+      "housekeeping_attendance": [
+        {
+          "designation": "SWEEPERS",
+          "allotted_nos": 48,
+          "present_count": 20,
+          "absent_count": 4,
+          "vacancy_count": 24
+        },
+        {
+          "designation": "SCAVENGERS",
+          "allotted_nos": 42,
+          "present_count": 17,
+          "absent_count": 8,
+          "vacancy_count": 17
+        },
+        {
+          "designation": "HK SUPERVISORS",
+          "allotted_nos": 2,
+          "present_count": 1,
+          "absent_count": 0,
+          "vacancy_count": 1
+        }
+      ],
+      "warden_attendance": {
+        "allotted_nos": 6,
+        "present_count": 4,
+        "absent_count": 0,
+        "vacancy_count": 2
+      }
+    }
+  ]
+}
